@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 const refs = {
   delayEl: document.querySelector('[name="delay"]'),
   stepEl: document.querySelector('[name="step"]'),
@@ -15,10 +17,10 @@ function qq(e) {
 
     createPromise(position, delay)
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        Notiflix.Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
       });
 
     delay += step;
